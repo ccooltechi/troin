@@ -267,7 +267,9 @@ then
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
 	make -C ../troin/depends download SOURCES_PATH=`pwd`/cache/common
-
+	linux=false
+	windows=true
+	osx=false
 	# Linux
 	if [[ $linux = true ]]
 	then
