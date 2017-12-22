@@ -48,7 +48,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "This ia troin test ";
+    const char* pszTimestamp = "TROIN IS MADE ON 22 DEC 2017";
     const CScript genesisOutputScript = CScript() << ParseHex("123484710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -111,22 +111,22 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xd2; // deepak
-        pchMessageStart[1] = 0xc3; // deepak
+        pchMessageStart[0] = 0xD2; // deepak
+        pchMessageStart[1] = 0xC3; // deepak
         pchMessageStart[2] = 0xb6;
         pchMessageStart[3] = 0xdb;
         nDefaultPort = 10333;
         nPruneAfterHeight = 100000;
 
         // genesis = CreateGenesisBlock(1317972665, 2084524493, 0x1e0ffff0, 1, 50 * COIN);
-        genesis = CreateGenesisBlock(1511429439, 38480505, 0x1e0ffff0, 1, 50 * COIN); // deepak changed 1,2 params
+        genesis = CreateGenesisBlock(1513916360, 638509, 0x1e0ffff0, 1, 50 * COIN); // deepak changed 1,2 params
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
-        printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+        printf("At CMainParams  %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        printf("At CMainParams  %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
-        assert(consensus.hashGenesisBlock == uint256S("0x1448adc6d932065e5aeb8db34137a9c31b20d9e3953c9e16f90a8d7088ec4f89c9"));
-        assert(genesis.hashMerkleRoot == uint256S("0x14c28bc5cf80aeca6dec17de29bd2b2766c3cfab703c881d339aa7db338dfeabaa"));
+        assert(consensus.hashGenesisBlock == uint256S("0x4bf0b225ac751dfe5b730752da8e51d9764e2a8d299748ffdce7a6242e45e398"));
+        assert(genesis.hashMerkleRoot == uint256S("0xc5c34d1346785eea253c8f34884d363548157703bf0e18988e33472ee2ccaabf"));
 
         // assert(consensus.hashGenesisBlock == uint256S("0x14f84ef470dd6dd5649c7b42084d0110f55a23828c39a5b2c32ac6a425ca6ecd73"));
         // assert(genesis.hashMerkleRoot == uint256S("0x14efc1a5324966839ca319596a5fb993ef6295041f6fdb31a7efb61e672a7b94b8"));
@@ -239,17 +239,21 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0xad8ff6c2f5580d2b50bd881e11312425ea84fa99f322bf132beb722f97971bba"); //153490
 
-        pchMessageStart[0] = 0xfd;
-        pchMessageStart[1] = 0xd2;
+        pchMessageStart[0] = 0xD2; // deepak
+        pchMessageStart[1] = 0xC3; // deepak
         pchMessageStart[2] = 0xc8;
         pchMessageStart[3] = 0xf1;
         nDefaultPort = 19335;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1511429439, 38480505, 0x1e0ffff0, 1, 50 * COIN); // deepak changed 1,2 params
+        genesis = CreateGenesisBlock(1513916360, 638509, 0x1e0ffff0, 1, 50 * COIN); // deepak changed 1,2 params
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x1452847e7baeb554c811c897a71a1fe8e345d643d15eae7ab455d3a5650e2d999f"));
-        assert(genesis.hashMerkleRoot == uint256S("0x14efc1a5324966839ca319596a5fb993ef6295041f6fdb31a7efb61e672a7b94b8"));
+        printf("At CTestNetParams  %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        printf("At CTestNetParams  %s\n", genesis.hashMerkleRoot.ToString().c_str());
+
+
+        assert(consensus.hashGenesisBlock == uint256S("0x4bf0b225ac751dfe5b730752da8e51d9764e2a8d299748ffdce7a6242e45e398"));
+        assert(genesis.hashMerkleRoot == uint256S("0xc5c34d1346785eea253c8f34884d363548157703bf0e18988e33472ee2ccaabf"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -322,17 +326,21 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
 
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xbf;
+        pchMessageStart[0] = 0xD2; // deepak
+        pchMessageStart[1] = 0xC3; // deepak
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
         nDefaultPort = 19444;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1513916360, 638509, 0x1e0ffff0, 1, 50 * COIN); // deepak changed 1,2 params
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+
+        printf("At CRegTestParams  %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        printf("At CRegTestParams  %s\n", genesis.hashMerkleRoot.ToString().c_str());
+
+        assert(consensus.hashGenesisBlock == uint256S("0x4bf0b225ac751dfe5b730752da8e51d9764e2a8d299748ffdce7a6242e45e398"));
+        assert(genesis.hashMerkleRoot == uint256S("0xc5c34d1346785eea253c8f34884d363548157703bf0e18988e33472ee2ccaabf"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
